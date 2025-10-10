@@ -3,14 +3,14 @@ products = [
         "id": 1,
         "name": "Wireless Bluetooth Headphones",
         "description": "High-quality over-ear headphones with noise cancellation and 20-hour battery life.",
-        "price": 149.99,
-        "category": "Electronics",
-        "brand": "SoundWave",
+        # "price": 149.99,
+        # "category": "Electronics",
+        # "brand": "SoundWave",
         "image_url": "https://placehold.co/300x300?text=Wireless+Headphones",
         "average_rating": 0.0,
-        "num_reviews": 0,
+        # "num_reviews": 0,
         "created_at": "2025-10-01",
-        "stock": 50
+        # "stock": 50
     },
     {
         "id": 2,
