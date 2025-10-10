@@ -1,0 +1,6 @@
+*{
+    font-family: "Oswald", sans-serif;
+}
+.min-h-50vh{
+    min-height: 50vh !important;
+}

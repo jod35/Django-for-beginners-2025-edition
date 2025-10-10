@@ -1,14 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
+from .data import products
 
 # Create your views here.
 def homepage(request: HttpRequest) -> HttpResponse:
-    page_title = "Home Page"
+    page_title = "Product List"
+    product_list = products
     return render(request,'index.html',
-                  {'title': page_title})
+                  {'title': page_title, 'products': product_list})
 
 def about_page(request: HttpRequest) -> HttpResponse:
-    return render(request,'about.html',{})
+    page_title = "About Page"
+    return render(request,'about.html',{'title': page_title})
 
 def contact_page(request: HttpRequest) -> HttpResponse:
-    return render(request,'contact.html',{})
+    page_title = "Contact Page"
+    return render(request,'contact.html',{'title': page_title})
