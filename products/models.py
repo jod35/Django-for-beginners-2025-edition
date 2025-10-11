@@ -22,3 +22,6 @@ class Product(models.Model):
 
     def __str__(self):
         return f"<Product {self.name}>"
+    
+    class Meta:
+        ordering = ['-created_at']

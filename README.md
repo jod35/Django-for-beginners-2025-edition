@@ -13,7 +13,7 @@ This is a very beginner series on the Django web framework for people who have n
 | [x] | 2 | Django Projects and Apps | Understand structure; create app | Project vs. app, `settings.py`, `urls.py`, function-based views, URL routing |
 | [x] | 3 | Templates and Basic Frontend | Render dynamic HTML | Template language (variables, loops), template inheritance, static files (CSS), basic HTML/CSS |
 | [x] | 4 | Models and Databases | Store data with ORM | Models, migrations, ORM queries, SQLite |
-| [ ] | 5 | Admin Interface and Data Management | Manage data via admin | Admin setup, superuser, CRUD, customize admin (list display) |
+| [x] | 5 | Admin Interface and Data Management | Manage data via admin | Admin setup, superuser, CRUD, customize admin (list display) |
 | [ ] | 6 | Views and Dynamic Pages | Build dynamic pages | Function vs. class-based views, context, URL parameters |
 | [ ] | 7 | Forms and User Input | Handle user input | Forms (`Form`, `ModelForm`), POST requests, CSRF, validation |
 | [ ] | 8 | User Authentication | Add user accounts | Built-in auth (`User`, login/logout), registration, `@login_required` |

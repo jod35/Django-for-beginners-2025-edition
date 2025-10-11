@@ -7,7 +7,7 @@
 <div class="products row mt-4 gap-2">
   {% for product in products %}
   <div class="card mt-4 col-3">
-    <img src="{{product.image_url}}" class="card-img-top" alt="{{product.name}}">
+    <img src="{{product.image_url.url}}" class="card-img-top" alt="{{product.name}}">
     <div class="card-body">
       <h5 class="card-title">{{product.name}}</h5>
       <p class="card-text">{{product.description|truncatechars:35}}</p>
