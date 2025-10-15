@@ -1,0 +1,82 @@
+{% extends 'layouts/base.html' %}
+{% block main_content %}
+<div class="container mt-5">
+    <!-- Product Details Section -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h1 class="card-title">{{ product.name }}</h1>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">{{ product.created_at}}</p>
+            {% comment %}
+            <h5 class="card-text">Category: <b>Electronics</b></h5>
+            {% endcomment %}
+                
+        </div>
+    </div>
+
+
+    {% comment %}
+    <!-- Reviews Section -->
+    <h2 class="mb-3">Reviews</h2>
+    <div class="list-group mb-4">
+        <!-- Review 1 -->
+        <div class="list-group-item">
+            <h5 class="mb-1">Alice Smith <small class="text-muted">(October 10, 2025)</small></h5>
+            <p class="mb-1">Rating:
+                <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span> (5/5)
+            </p>
+            <p class="mb-1">Amazing sound quality! Worth every penny.</p>
+        </div>
+        <!-- Review 2 -->
+        <div class="list-group-item">
+            <h5 class="mb-1">Bob Johnson <small class="text-muted">(October 8, 2025)</small></h5>
+            <p class="mb-1">Rating:
+                <span class="text-warning">&#9733;&#9733;&#9733;&#9733;</span> (4/5)
+            </p>
+            <p class="mb-1">Great headphones, but the battery could last longer.</p>
+        </div>
+        <!-- Review 3 -->
+        <div class="list-group-item">
+            <h5 class="mb-1">Carol Lee <small class="text-muted">(October 5, 2025)</small></h5>
+            <p class="mb-1">Rating:
+                <span class="text-warning">&#9733;&#9733;&#9733;</span> (3/5)
+            </p>
+            <p class="mb-1">Decent, but the noise cancellation isn’t as strong as advertised.</p>
+        </div>
+    </div>
+
+    <!-- Review Submission Form -->
+    <h2 class="mb-3">Leave a Review</h2>
+    <form method="post" class="mb-5">
+        <!-- CSRF token (static placeholder for demo) -->
+        <input type="hidden" name="csrfmiddlewaretoken" value="dummy-csrf-token">
+        <!-- Reviewer Name -->
+        <div class="mb-3">
+            <label for="reviewer_name" class="form-label">Your Name</label>
+            <input type="text" name="reviewer_name" id="reviewer_name" class="form-control"
+                placeholder="Enter your name" required>
+        </div>
+        <!-- Rating -->
+        <div class="mb-3">
+            <label for="rating" class="form-label">Rating</label>
+            <select name="rating" id="rating" class="form-select" required>
+                <option value="" disabled selected>Select a rating</option>
+                <option value="1">1 Star</option>
+                <option value="2">2 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="5">5 Stars</option>
+            </select>
+        </div>
+        <!-- Comment -->
+        <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <textarea name="comment" id="comment" class="form-control" rows="4" placeholder="Share your thoughts..."
+                required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+    {% endcomment %}
+
+</div>
+{% endblock main_content %}
