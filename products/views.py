@@ -1,20 +1,41 @@
-from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
-
-from products.forms import ProductCreateForm
 from .data import products
 from .models import Product
+from django.views.generic import ListView, TemplateView, DetailView
+
 # Create your views here.
-def homepage(request: HttpRequest) -> HttpResponse:
+
+class HomepageView(ListView):
     page_title = "Product List"
-    product_list = Product.objects.all()
-    return render(request,'index.html',
-                  {'title': page_title, 'products': product_list})
+    template_name = "index.html"
+    model = Product
+    context_object_name = "products"
 
-def about_page(request: HttpRequest) -> HttpResponse:
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.page_title
+        return context
+
+class AboutPage(TemplateView):
     page_title = "About Page"
-    return render(request,'about.html',{'title': page_title})
+    template_name = "about.html"
 
-def contact_page(request: HttpRequest) -> HttpResponse:
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.page_title
+        return context
+
+class ContactPage(TemplateView):
     page_title = "Contact Page"
-    return render(request,'contact.html',{'title': page_title})
+    template_name = "contact.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.page_title
+        return context
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = "products/product_detail.html"
+    queryset = Product.objects.all()
+    context_object_name = 'product'
