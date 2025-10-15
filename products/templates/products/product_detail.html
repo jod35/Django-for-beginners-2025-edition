@@ -4,13 +4,19 @@
     <!-- Product Details Section -->
     <div class="card mb-4">
         <div class="card-body">
-            <h1 class="card-title">{{ product.name }}</h1>
-            <p class="card-text">{{ product.description }}</p>
-            <p class="card-text">{{ product.created_at}}</p>
-            {% comment %}
-            <h5 class="card-text">Category: <b>Electronics</b></h5>
-            {% endcomment %}
-                
+            <div class="row">
+                <div class="col-3">
+                    <img src="{{product.image_url.url}}" class="card-img-top" alt="{{product.name}}">
+                </div>
+                <div class="col-9">
+                    <h1 class="card-title">{{ product.name }}</h1>
+                    <p class="card-text">{{ product.description }}</p>
+                    <p class="card-text">{{ product.created_at}}</p>
+                    {% comment %}
+                    <h5 class="card-text">Category: <b>Electronics</b></h5>
+                    {% endcomment %}
+                </div>
+            </div>
         </div>
     </div>
 
