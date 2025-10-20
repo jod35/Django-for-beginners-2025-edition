@@ -4,3 +4,18 @@
 .min-h-50vh{
     min-height: 50vh !important;
 }
+
+
+.image-container {
+  height: 50%; /* Container takes 50% of card's height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Prevent image overflow */
+}
+
+.custom-image {
+  height: 100%; /* Image stretches to 100% of container height */
+  width: 100%; /* Image stretches to 100% of container width */
+  object-fit: cover; /* Stretch to fill container, cropping if needed */
+}
