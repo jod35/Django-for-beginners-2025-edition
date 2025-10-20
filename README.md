@@ -16,7 +16,7 @@ This is a very beginner series on the Django web framework for people who have n
 | [x] | 5 | Admin Interface and Data Management | Manage data via admin | Admin setup, superuser, CRUD, customize admin (list display) |
 | [x] | 6 | Views and Dynamic Pages | Build dynamic pages | Function vs. class-based views, context, URL parameters |
 | [x] | 7 | Forms and User Input | Handle user input | Forms (`Form`, `ModelForm`), POST requests, CSRF, validation |
-| [ ] | 8 | User Authentication | Add user accounts | Built-in auth (`User`, login/logout), registration, `@login_required` |
+| [x] | 8 | User Authentication | Add user accounts | Built-in auth (`User`, login/logout), registration, `@login_required` |
 | [ ] | 9 | Model Relationships | Add  with items relations | ForeignKey , related queries, model forms with relationships |
 | [ ] | 10 | Search and Pagination | Enhance usability | Search with `.filter()`, pagination with `Paginator` |
 | [ ] | 11 | Testing and Debugging | Ensure reliability | Django test framework, debugging (print, debug page) |
