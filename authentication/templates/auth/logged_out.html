@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %}
+
+{% block main_content %}
+    <h1>You are Logged Out</h1>
+    
+    <div class="form-group mt-3">
+        You can <a href="{% url 'login_page' %}">Login Again</a>
+    </div>
+</form>
+{% endblock main_content %}

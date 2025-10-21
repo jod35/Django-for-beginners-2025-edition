@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+
+{% block main_content %}
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <h1>Are you sure You wanna log out?</h1>
+    <div class="form-group mt-3">
+        <a href="{% url 'homepage' %}" class="btn btn-secondary">Go to Home Page</a>
+        <input type="submit" value="Logout" class="btn btn-primary">
+    </div>
+</form>
+{% endblock main_content %}

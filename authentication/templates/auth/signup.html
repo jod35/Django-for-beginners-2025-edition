@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+{% block main_content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <h1>Create a User Account</h1>
+    <div class="form-group mt-2">
+        {{form.username.label}}
+        {{form.username}}
+    </div>
+    <div class="form-group mt-2">
+        {{ form.password1.label }}
+        {{ form.password1 }}
+    </div>
+    <div class="form-group mt-2">
+        {{form.password2.label}}
+        {{ form.password2 }}
+    </div>
+    <div class="form-group mt-3">
+        <input type="submit" value="Sign Up" class="btn btn-primary">
+    </div>
+</form>
+{% endblock main_content %}

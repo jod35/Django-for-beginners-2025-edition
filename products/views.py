@@ -2,11 +2,14 @@ from django.http import HttpRequest, HttpResponse
 from .data import products
 from .models import Product
 from django.views.generic import ListView, TemplateView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.contrib import messages
 from .forms import ProductCreateForm
 
 # Create your views here.
+
 
 class HomepageView(ListView):
     page_title = "Product List"
@@ -19,14 +22,16 @@ class HomepageView(ListView):
         context["title"] = self.page_title
         return context
 
+
 class AboutPage(TemplateView):
     page_title = "About Page"
     template_name = "about.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = self.page_title
+        context["title"] = self.page_title
         return context
+
 
 class ContactPage(TemplateView):
     page_title = "Contact Page"
@@ -34,22 +39,24 @@ class ContactPage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = self.page_title
+        context["title"] = self.page_title
         return context
+
 
 class ProductDetailView(DetailView):
     model = Product
     template_name = "products/product_detail.html"
     queryset = Product.objects.all()
-    context_object_name = 'product'
+    context_object_name = "product"
 
-class ProductCreateView(TemplateView):
-    template_name = 'products/product_create_form.html'
+
+class ProductCreateView(LoginRequiredMixin, TemplateView):
+    template_name = "products/product_create_form.html"
     form_class = ProductCreateForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = self.form_class()
+        context["form"] = self.form_class()
         return context
 
     def post(self, request: HttpRequest) -> HttpResponse:
@@ -57,6 +64,10 @@ class ProductCreateView(TemplateView):
 
         if form.is_valid():
             form.save()
-            return redirect(reverse('homepage'))
-        
-        return redirect(reverse('product_create'))
+            messages.success(request, "Product Created Successfully")
+
+            return redirect(reverse("homepage"))
+
+        print(form.errors)
+        messages.success(request, "Failed to create Product")
+        return redirect(reverse("product_create"))
