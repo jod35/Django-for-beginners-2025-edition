@@ -13,15 +13,16 @@ class Product:
     updated_at datetime
 """
 
+
 class Product(models.Model):
     name = models.CharField(max_length=90)
     description = models.TextField()
-    image_url = models.ImageField(upload_to='product_imgs/', default='default.png')
+    image_url = models.ImageField(upload_to="product_imgs/", default="default.png")
     created_at = models.DateTimeField(auto_now_add=True)
-    updated_at =models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"<Product {self.name}>"
-    
+
     class Meta:
-        ordering = ['-created_at']
+        ordering = ["-created_at"]
